@@ -3,7 +3,9 @@ package Utils;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Utils {
+import Interfaces.IUtils;
+
+public class Utils implements IUtils{
 	
 	
 	/**
