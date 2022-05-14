@@ -54,7 +54,7 @@ public class RepoTorneo {
 	 * @param Integer id que queremos eliminar
 	 * @return Si se ha eliminado el torneo
 	 */
-	public boolean removeEquipo(Integer id) {
+	public boolean removeTorneo(Integer id) {
 		boolean removed=false;
 		if(this.misTorneos.containsKey(id)) {
 			this.misTorneos.remove(id);
@@ -96,7 +96,7 @@ public class RepoTorneo {
 	public void saveFile(String url) {
 		JAXBContext contexto; 
 		try {
-			contexto = JAXBContext.newInstance(RepoEquipo.class);
+			contexto = JAXBContext.newInstance(RepoTorneo.class);
 			Marshaller m = contexto.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			
