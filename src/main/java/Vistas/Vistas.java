@@ -27,9 +27,22 @@ public class Vistas implements IVista{
 	public void showMainTorneos() {
 		System.out.println("1. Crear torneo");
 		System.out.println("2. Eliminar torneo");
+		System.out.println("3. Comenzar torneo");
+		System.out.println("4. Volver");
+	}
+	
+	public void showStartTorneo() {
+		System.out.println("1. Empezar torneo");
+		System.out.println("2. Ver emparejamientos del torneo");
 		System.out.println("3. Apuestas");
-		System.out.println("4. Ver emparejamientos del torneo");
-		System.out.println("5. Volver");
+		System.out.println("4. Volver");
+	}
+	
+	public void showMenuApuestas() {
+		System.out.println("1. Hacer apuesta");
+		System.out.println("2. Eliminar apuesta");
+		System.out.println("3. Ver apuestas");
+		System.out.println("4. Volver");
 	}
 	
 	public void separar() {
