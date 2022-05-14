@@ -13,10 +13,10 @@ public class Controlador {
 	private void SwitchMain(int op) {
 		switch (op) {
 		case 1:
-			SwitchMenuPlayer(util.opcMenu5());
+			SwitchMenuPlayer(util.opcMenu4());
 			break;
 		case 2:
-			SwitchMenuTeam(util.opcMenu5());
+			SwitchMenuTeam(util.opcMenu4());
 			break;
 		case 3:
 			SwitchMenuTorneos(util.opcMenu5());

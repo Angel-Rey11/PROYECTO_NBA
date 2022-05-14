@@ -2,7 +2,7 @@ package Interfaces;
 
 public interface IUtils {
 	Integer leeEntero(String frase);
-    Float leeFloat(String frase);
+    Double leeDouble(String frase);
     String leeString(String frase);
     void print(String s);
     Integer opcMenu3();
