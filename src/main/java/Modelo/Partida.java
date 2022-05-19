@@ -11,12 +11,11 @@ public class Partida {
 		generaEmparejamientos(t);
 		ArrayList<Equipo> ladoiz = new ArrayList<Equipo>();
 		ArrayList<Equipo> ladoder = new ArrayList<Equipo>();
-		ladoderecho.add(ladoderecho.get(1));
 		Random r = new Random();
 		int low = 50;
 		int high = 140;
 		int tamano = ladoizquierdo.size();
-		System.out.println(ladoizquierdo.get(0) + "vs" + ladoderecho.get(1));
+		//System.out.println(ladoizquierdo.get(0) + "vs" + ladoderecho.get(1));
 		do {
 			for (int i = 0; i < tamano/2; i++) {
 				int result = r.nextInt(high-low) + low;
@@ -34,14 +33,13 @@ public class Partida {
 					ladoder.add(ladoderecho.get(0));
 				}
 				ladoizquierdo.remove(0);
-				ladoizquierdo.remove(1);
 				ladoderecho.remove(0);
-				ladoderecho.remove(1);
 				
 			}
-			System.out.println(ladoiz.get(0) + "vs" + ladoiz.get(1));
+			//System.out.println(ladoiz.get(0) + "vs" + ladoiz.get(1));
 		} while (ladoizquierdo.size()>1);
-		
+		ladoiz.add(ladoizquierdo.get(0));
+		ladoder.add(ladoderecho.get(0));
 		int result = r.nextInt(high-low) + low;
 		int result2 = r.nextInt(high-low) + low;
 			if(result<result2) {
@@ -56,15 +54,21 @@ public class Partida {
 	 * @param t torneo del que queremos generar los emparejamientos para empezar ese torneo
 	 */
 	private void generaEmparejamientos(Torneo t) {
-		ArrayList<Equipo> copia = t.getListaEquipos();	
-		for (int i = 0; i < copia.size(); i++) {
-			int aleatorio = (int) (Math.random()*copia.size());
+		ArrayList<Equipo> copia = t.getListaEquipos();
+		Random r = new Random();
+		int div = t.getListaEquipos().size()/2;
+		for (int i = 0; i < t.getListaEquipos().size(); i++) {
+			int low = 0;
+			int high = copia.size();
+			int result = r.nextInt(high-low) + low;
 			int aleatorio2 = (int) (Math.random()+1);
-			if (aleatorio2==1 && ladoizquierdo.size()<copia.size()/2) {
-				ladoizquierdo.add(copia.get(aleatorio));
-			} else if (aleatorio2==2 && ladoderecho.size()<copia.size()/2) {
-				ladoderecho.add(copia.get(aleatorio));
+			if (div>i) {
+				ladoizquierdo.add(copia.get(result));
+			} else {
+				ladoderecho.add(copia.get(result));	
 			}
 		}
+		System.out.println(ladoderecho);
+		System.out.println(ladoizquierdo);
 	}
 }

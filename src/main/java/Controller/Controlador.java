@@ -1,19 +1,22 @@
 package Controller;
 
 import Modelo.Equipo;
+import Modelo.Partida;
 import Modelo.RepoEquipo;
 import Modelo.RepoJugador;
 import Modelo.RepoTorneo;
+import Modelo.Torneo;
 import Utils.Utils;
 import Vistas.Vistas;
 
 public class Controlador {
 	
 	Vistas v = new Vistas();
-	Utils u = new Utils();
+	Utils u = Utils.getInstance();
 	RepoJugador rj = RepoJugador.getInstance();
 	RepoEquipo re = RepoEquipo.getInstance();
 	RepoTorneo rt = RepoTorneo.getInstance();
+	Partida p = new Partida();
 	
 	/**
 	 * Controlador principal del programa, muestra el menu principal
@@ -22,12 +25,15 @@ public class Controlador {
 	private void SwitchMain(int op) {
 		switch (op) {
 		case 1:
-			SwitchMenuPlayer(u.opcMenu4());
+			v.showMainPlayer();
+			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		case 2:
-			SwitchMenuTeam(u.opcMenu4());
+			v.showMainTeam();
+			SwitchMenuTeam(u.opcMenu5());
 			break;
 		case 3:
+			v.showMainTorneos();
 			SwitchMenuTorneos(u.opcMenu5());
 			break;
 		case 4:
@@ -45,19 +51,24 @@ public class Controlador {
 		case 1:
 			rj.AddJugador(u.ReadJugador());
 			v.showMainPlayer();
-			SwitchMenuPlayer(u.opcMenu4());
+			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		case 2:
 			Integer id = u.leeEntero("Introduce el ID del jugador");
 			rj.removeJugador(id);
 			v.showMainPlayer();
-			SwitchMenuPlayer(u.opcMenu4());
+			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		case 3:
 			v.showMainPlayer();
-			SwitchMenuPlayer(u.opcMenu4());
+			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		case 4:
+			rj.showPlayersList(rj.ShowPlayers());
+			v.showMainPlayer();
+			SwitchMenuPlayer(u.opcMenu5());
+			break;
+		case 5:
 			v.showMainMenu();
 			SwitchMain(u.opcMenu3());
 			break;
@@ -75,19 +86,24 @@ public class Controlador {
 			u.print("Introduce los jugadores que quieras en el equipo");
 			re.AddEquipo(u.AddPlayers(e));
 			v.showMainTeam();
-			SwitchMenuTeam(u.opcMenu4());
+			SwitchMenuTeam(u.opcMenu5());
 			break;
 		case 2:
 			String nombre = u.leeString("Introduce el nombre del equipo");
 			re.removeEquipo(nombre);
 			v.showMainTeam();
-			SwitchMenuTeam(u.opcMenu4());
+			SwitchMenuTeam(u.opcMenu5());
 			break;
 		case 3:
 			v.showMainTeam();
-			SwitchMenuTeam(u.opcMenu4());
+			SwitchMenuTeam(u.opcMenu5());
 			break;
 		case 4:
+			re.showTeamsList(re.ShowTeams());
+			v.showMainTeam();
+			SwitchMenuTeam(u.opcMenu5());
+			break;
+		case 5:
 			v.showMainMenu();
 			SwitchMain(u.opcMenu3());
 			break;
@@ -116,6 +132,11 @@ public class Controlador {
 			SwitchStartTorneo(u.opcMenu4());
 			break;
 		case 4:
+			rt.showTorneosList(rt.ShowTorneos());
+			v.showStartTorneo();
+			SwitchStartTorneo(u.opcMenu4());
+			break;
+		case 5:
 			v.showMainMenu();
 			SwitchMain(u.opcMenu3());
 			break;
@@ -129,6 +150,9 @@ public class Controlador {
 	private void SwitchStartTorneo(int op) {
 		switch (op) {
 		case 1:
+			Integer id = u.leeEntero("Introduce el ID del torneo que quieres comenzar");
+			Torneo t = rt.getTorneo(id);
+			p.PartidaAleatoria(t);
 			break;
 		case 2:
 			v.showStartTorneo();

@@ -14,21 +14,24 @@ public class Vistas implements IVista{
 		System.out.println("1. Crear jugador");
 		System.out.println("2. Eliminar jugador");
 		System.out.println("3. Editar jugador");
-		System.out.println("4. Volver");
+		System.out.println("4. Ver jugadores");
+		System.out.println("5. Volver");
 	}
 	
 	public void showMainTeam() {
 		System.out.println("1. Crear equipo");
 		System.out.println("2. Eliminar equipo");
 		System.out.println("3. Editar equipo");
-		System.out.println("4. Volver");
+		System.out.println("4. Ver equipos");
+		System.out.println("5. Volver");
 	}
 	
 	public void showMainTorneos() {
 		System.out.println("1. Crear torneo");
 		System.out.println("2. Eliminar torneo");
 		System.out.println("3. Comenzar torneo");
-		System.out.println("4. Volver");
+		System.out.println("4. Ver torneos");
+		System.out.println("5. Volver");
 	}
 	
 	public void showStartTorneo() {

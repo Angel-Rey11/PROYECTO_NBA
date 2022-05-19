@@ -15,6 +15,24 @@ import Vistas.Vistas;
 
 public class Utils implements IUtils {
 	
+	//patron singleton
+		private static Utils _instance;
+		
+	private Utils() {
+		
+	}
+	
+	/**
+	 * Metodo para convertir vista en patron singleton
+	 * @return devuelve vista
+	 */
+	public static Utils getInstance() {
+		if(_instance==null) {
+			_instance=new Utils();
+		}
+		return _instance;
+	}
+	
 	RepoJugador rj = RepoJugador.getInstance();
 	RepoEquipo re = RepoEquipo.getInstance();
 	
@@ -64,7 +82,7 @@ public class Utils implements IUtils {
 	 * @return el equipo creado
 	 */
 	public Equipo ReadEquipo() {
-		String nombre = leeString("Introduce el nombre del jugador");
+		String nombre = leeString("Introduce el nombre del equipo");
 		String color = leeString("Introduce el color del equipo");
 		Integer NJugadores = leeEntero("Introduce el numero de jugadores que tendra el equipo");
 		Equipo e = new Equipo(nombre,color,NJugadores);
@@ -90,7 +108,7 @@ public class Utils implements IUtils {
 	public ArrayList<Jugador> ElegirJugador(Equipo e) {
 		Integer contador = 0;
 		ArrayList<Jugador> misJ = new ArrayList<Jugador>();
-		while (contador<=e.getnJugadores()) {
+		while (contador<e.getnJugadores()) {
 			rj.showPlayersList(rj.ShowPlayers());
 			Integer id = leeEntero("Introduce la ID del jugador que quieres añadir");
 			Jugador ju = rj.getJugador(id);
@@ -111,7 +129,7 @@ public class Utils implements IUtils {
 	public ArrayList<Equipo> ElegirEquipos() {
 		ArrayList<Equipo> misEquipos = new ArrayList<Equipo>();
 		Integer contador = 0;
-		while (contador<=4) {
+		while (contador<4) {
 			re.showTeamsList(re.ShowTeams());
 			String nombre = leeString("Introduce el nombre del equipo");
 			Equipo e = re.getEquipo(nombre);
