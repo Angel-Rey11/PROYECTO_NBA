@@ -18,8 +18,6 @@ import Utils.Utils;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RepoJugador {
 	
-	Utils u = new Utils();
-	
 	//patron singleton
 	private static RepoJugador _instance;
 	

@@ -72,9 +72,11 @@ public class Equipo implements Serializable{
 		this.listaJugadores = listaJugadores;
 	}
 	
+	
 	@Override
 	public String toString() {
-		return "Equipo [nombre=" + nombre + ", Color=" + color + ", nJugadores=" + nJugadores + "]";
+		return "Equipo [nombre=" + nombre + ", color=" + color + ", nJugadores=" + nJugadores + ", listaJugadores="
+				+ listaJugadores + "]";
 	}
 	@Override
 	public int hashCode() {
