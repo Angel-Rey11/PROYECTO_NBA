@@ -61,7 +61,6 @@ public class Partida {
 			int low = 0;
 			int high = copia.size();
 			int result = r.nextInt(high-low) + low;
-			int aleatorio2 = (int) (Math.random()+1);
 			if (div>i) {
 				ladoizquierdo.add(copia.get(result));
 			} else {

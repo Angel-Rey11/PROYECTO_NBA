@@ -36,6 +36,51 @@ public class RepoApuesta {
 	}
 	
 	/**
+	 * Metodo para añadir una apuesta a la coleccion
+	 * @param a apuesta que se añade
+	 * @return true si se ha añadido y false si no se ha podido añadir
+	 */
+	public boolean AddEquipo(Apuesta a) {
+		boolean add = false;
+		if (!this.misApuestas.containsKey(a.getnApuesta())) {
+			this.misApuestas.put(a.getnApuesta(), a);
+			add=true;
+		}
+		return add;
+	}
+	
+	/**
+	 * Metodo para eliminar una apuesta
+	 * @param Integer n que queremos eliminar
+	 * @return Si se ha eliminado la apuesta
+	 */
+	public boolean removeEquipo(Integer n) {
+		boolean removed=false;
+		if(this.misApuestas.containsKey(n)) {
+			this.misApuestas.remove(n);
+			removed=true;
+		}
+		return removed; 
+	}
+	
+	/**
+	 * Metodo que devuelve todos las apuestas de la lista
+	 * @return todos las apuestas de la lista
+	 */
+	public HashMap<Integer, Apuesta> ShowApuestas() {
+		return misApuestas;
+	}
+	
+	/**
+	 * Metodo para mostrar la lista de apuestas que se encuentra en el hashmap
+	 */
+	public void showApuestaList(HashMap <Integer, Apuesta> e){
+		for(Integer key:e.keySet()) {
+			System.out.println("ID: " +key+ "Value: " +e.get(key));
+		}
+	}
+	
+	/**
 	 * Metodo para guardar los datos en archivo XML
 	 * @param url Ubicacion del archivo
 	 */

@@ -2,6 +2,7 @@ package Controller;
 
 import Modelo.Equipo;
 import Modelo.Partida;
+import Modelo.RepoApuesta;
 import Modelo.RepoEquipo;
 import Modelo.RepoJugador;
 import Modelo.RepoTorneo;
@@ -16,6 +17,7 @@ public class Controlador {
 	RepoJugador rj = RepoJugador.getInstance();
 	RepoEquipo re = RepoEquipo.getInstance();
 	RepoTorneo rt = RepoTorneo.getInstance();
+	RepoApuesta rp = RepoApuesta.getInstance();
 	Partida p = new Partida();
 	
 	/**
@@ -176,14 +178,20 @@ public class Controlador {
 	private void SwitchMenuApuestas(int op) {
 		switch (op) {
 		case 1:
+			Integer id = u.leeEntero("Introduce el ID del torneo al que quieres apostar");
+			Torneo t = rt.getTorneo(id);
+			rp.AddEquipo(u.makeApuesta(t));
 			v.showMenuApuestas();
 			SwitchMenuApuestas(u.opcMenu4());
 			break;
 		case 2:
+			Integer id2 = u.leeEntero("Introduce el Numero de la apuesta que quieres eliminar");
+			rp.removeEquipo(id2);
 			v.showMenuApuestas();
 			SwitchMenuApuestas(u.opcMenu4());
 			break;
 		case 3:
+			rp.showApuestaList(rp.ShowApuestas());
 			v.showMenuApuestas();
 			SwitchMenuApuestas(u.opcMenu4());
 			break;
