@@ -2,14 +2,18 @@ package Utils;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
 import Interfaces.IUtils;
+import Modelo.Apuesta;
 import Modelo.Atributo;
 import Modelo.Equipo;
 import Modelo.Jugador;
+import Modelo.RepoApuesta;
 import Modelo.RepoEquipo;
 import Modelo.RepoJugador;
+import Modelo.RepoTorneo;
 import Modelo.Torneo;
 import Vistas.Vistas;
 
@@ -35,6 +39,8 @@ public class Utils implements IUtils {
 	
 	RepoJugador rj = RepoJugador.getInstance();
 	RepoEquipo re = RepoEquipo.getInstance();
+	RepoApuesta ra = RepoApuesta.getInstance();
+	RepoTorneo rt = RepoTorneo.getInstance();
 	
 	/**
 	 * Metodo para leer un jugador por teclado con todos sus atributos
@@ -139,6 +145,45 @@ public class Utils implements IUtils {
 		return misEquipos;
 	}
 	
+	public Apuesta makeApuesta(Torneo t) {
+		Integer n = leeEntero("Introduce el numero de la apuesta");
+		Integer cantidad = leeEntero("Introduce la cantidad que vas a apostar");
+		MostrarEquipos(t);
+		String nombre = leeString("¿Que equipo crees que ganara?");
+		Equipo e = re.getEquipo(nombre);
+		Apuesta a = new Apuesta(cantidad,n,e,100);
+		if (comprobarApuesta() == true) {
+			Integer o = a.getSaldo()*2;
+			a.setSaldo(o);
+			return a;
+		} else {
+			a.setSaldo(0);
+			return a;
+		}
+	}
+	
+	public boolean comprobarApuesta() {
+		boolean s = false;
+		Random r = new Random();
+		int low = 0;
+		int high = 2;
+		int result = r.nextInt(high-low) + low;
+		if (result==1) {
+			print("Felicidades, ganaste la apuesta y doblaste tu saldo");
+			s = true;
+		} else {
+			print("Perdiste la apuesta y por tanto el saldo apostado");
+		}
+	return s;
+	}
+	
+	public void MostrarEquipos (Torneo t) {
+		ArrayList<Equipo> dev = t.getListaEquipos();
+		for (Equipo e : dev) {
+			printEquipo(e);
+		}
+	}
+	
 	/**
 	 * Metodo que controla los errores a la hora de introducir un entero
 	 */
@@ -199,6 +244,10 @@ public class Utils implements IUtils {
 	
 	public void printJugador(Jugador j) {
 		System.out.println(j);
+	}
+	
+	public void printEquipo(Equipo e) {
+		System.out.println(e);
 	}
 
 	/**

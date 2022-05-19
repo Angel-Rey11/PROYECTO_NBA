@@ -16,17 +16,40 @@ public class Apuesta implements Serializable {
 	@XmlAttribute(name = "Cantidad", required = true)
 	private Integer Cantidad;
 	private Integer nApuesta;
+	private Equipo equipo;
+	private Integer saldo;
 	
 	public Apuesta() {
 		
 	}
 	
-	public Apuesta(Integer cantidad, Integer nApuesta) {
+	
+	public Apuesta(Integer cantidad, Integer nApuesta, Equipo equipo, Integer saldo) {
 		super();
 		Cantidad = cantidad;
 		this.nApuesta = nApuesta;
+		this.equipo = equipo;
+		this.saldo = saldo;
 	}
-	
+
+	public Integer getSaldo() {
+		return saldo;
+	}
+
+
+	public void setSaldo(Integer saldo) {
+		this.saldo = saldo;
+	}
+
+
+	public Equipo getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(Equipo equipo) {
+		this.equipo = equipo;
+	}
+
 	public Integer getCantidad() {
 		return Cantidad;
 	}
@@ -45,8 +68,10 @@ public class Apuesta implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Apuesta [Cantidad=" + Cantidad + ", nApuesta=" + nApuesta + "]";
+		return "Apuesta [Cantidad=" + Cantidad + ", nApuesta=" + nApuesta + ", equipo=" + equipo + ", saldo=" + saldo
+				+ "]";
 	}
+
 
 	@Override
 	public int hashCode() {
