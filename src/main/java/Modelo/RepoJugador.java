@@ -39,6 +39,50 @@ public class RepoJugador {
 	}
 	
 	/**
+	 * Metodo para modificar el nombre de un jugador localizado por su ID
+	 * @param ID del jugador a buscar
+	 * @param Name Nombre al que se quiere cambiar
+	 */
+	public void modifyName(Integer ID, String Name) {
+		if(this.jugadores.containsKey(ID)) {
+			jugadores.get(ID).setNombre(Name);
+		}
+	}
+	
+	/**
+	 * Metodo para modificar el dorsal de un jugador localizado por su ID
+	 * @param ID del jugador a buscar
+	 * @param dorsal dorsal al que se quiere cambiar
+	 */
+	public void modifyDorsal(Integer ID, Integer dorsal) {
+		if(this.jugadores.containsKey(ID)) {
+			jugadores.get(ID).setDorsal(dorsal);
+		}
+	}
+	
+	/**
+	 * Metodo para modificar la altura de un jugador localizado por su ID
+	 * @param ID del jugador a buscar
+	 * @param altura altura al que se quiere cambiar
+	 */
+	public void modifyAltura(Integer ID, Double altura) {
+		if(this.jugadores.containsKey(ID)) {
+			jugadores.get(ID).setAltura(altura);
+		}
+	}
+	
+	/**
+	 * Metodo para modificar el pais de un jugador localizado por su ID
+	 * @param ID del jugador a buscar
+	 * @param pais pais al que se quiere cambiar
+	 */
+	public void modifyPais(Integer ID, String pais) {
+		if(this.jugadores.containsKey(ID)) {
+			jugadores.get(ID).setPais(pais);
+		}
+	}
+	
+	/**
 	 * Metodo para añadir un jugador a la coleccion
 	 * @param j jugador que se añade
 	 * @return true si se ha añadido y false si no se ha podido añadir
