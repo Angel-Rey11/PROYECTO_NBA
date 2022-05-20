@@ -15,7 +15,6 @@ public class Partida {
 		int low = 50;
 		int high = 140;
 		int tamano = ladoizquierdo.size();
-		//System.out.println(ladoizquierdo.get(0) + "vs" + ladoderecho.get(1));
 		do {
 			for (int i = 0; i < tamano/2; i++) {
 				int result = r.nextInt(high-low) + low;
@@ -36,16 +35,17 @@ public class Partida {
 				ladoderecho.remove(0);
 				
 			}
-			//System.out.println(ladoiz.get(0) + "vs" + ladoiz.get(1));
+			
 		} while (ladoizquierdo.size()>1);
 		ladoiz.add(ladoizquierdo.get(0));
 		ladoder.add(ladoderecho.get(0));
+		System.out.println("La final del torneo es --> " + ladoiz.get(0) + " vs " + ladoder.get(0));
 		int result = r.nextInt(high-low) + low;
 		int result2 = r.nextInt(high-low) + low;
 			if(result<result2) {
-				System.out.println("Ha ganado el equipo " + ladoiz.get(0));
+				System.out.println("Ha ganado el equipo --> " + ladoiz.get(0));
 			} else {
-				System.out.println("Ha ganado el equipo " + ladoder.get(0));
+				System.out.println("Ha ganado el equipo --> " + ladoder.get(0));
 			}
 	}
 	
@@ -61,13 +61,23 @@ public class Partida {
 			int low = 0;
 			int high = copia.size();
 			int result = r.nextInt(high-low) + low;
+			int result2 = r.nextInt(high-low) + low;
 			if (div>i) {
 				ladoizquierdo.add(copia.get(result));
 			} else {
-				ladoderecho.add(copia.get(result));	
+				ladoderecho.add(copia.get(result2));
 			}
 		}
-		System.out.println(ladoderecho);
 		System.out.println(ladoizquierdo);
+		System.out.println(ladoderecho);
+	}
+	
+	public void verEmparejamientos(Torneo t) {
+		generaEmparejamientos(t);
+		for (int i = 1; i < ladoizquierdo.size(); i++) {
+			for (int j = 0; j < ladoderecho.size(); j++) {
+				System.out.println(ladoizquierdo.get(i) + " vs " + ladoderecho.get(j));
+			}
+		}
 	}
 }

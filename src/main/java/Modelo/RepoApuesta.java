@@ -74,10 +74,13 @@ public class RepoApuesta {
 	/**
 	 * Metodo para mostrar la lista de apuestas que se encuentra en el hashmap
 	 */
-	public void showApuestaList(HashMap <Integer, Apuesta> e){
+	public Integer showApuestaList(HashMap <Integer, Apuesta> e){
+		Integer suma = 0;
 		for(Integer key:e.keySet()) {
 			System.out.println("ID: " +key+ "Value: " +e.get(key));
+			suma+=e.get(key).getSaldo();
 		}
+		return suma;
 	}
 	
 	/**

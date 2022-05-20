@@ -7,7 +7,7 @@ public class Vistas implements IVista{
 		System.out.println("1. Jugadores");
 		System.out.println("2. Equipos");
 		System.out.println("3. Torneos");
-		System.out.println("4. Salir");
+		System.out.println("4. Retirar saldo y Salir");
 	}
 	
 	public void showMainPlayer() {
@@ -24,6 +24,20 @@ public class Vistas implements IVista{
 		System.out.println("3. Editar equipo");
 		System.out.println("4. Ver equipos");
 		System.out.println("5. Volver");
+	}
+	
+	public void showModifyPlayer() {
+		System.out.println("1. Modificar Nombre");
+		System.out.println("2. Modificar Dorsal");
+		System.out.println("3. Modificar Altura");
+		System.out.println("4. Modificar Pais");
+		System.out.println("5. Volver");
+	}
+	
+	public void showModifyTeam() {
+		System.out.println("1. Modificar Color");
+		System.out.println("2. Modificar Numero de jugadores");
+		System.out.println("3. Volver");
 	}
 	
 	public void showMainTorneos() {

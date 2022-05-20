@@ -153,7 +153,7 @@ public class Utils implements IUtils {
 		Equipo e = re.getEquipo(nombre);
 		Apuesta a = new Apuesta(cantidad,n,e,100);
 		if (comprobarApuesta() == true) {
-			Integer o = a.getSaldo()*2;
+			Integer o = cantidad*2;
 			a.setSaldo(o);
 			return a;
 		} else {

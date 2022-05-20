@@ -39,7 +39,9 @@ public class Controlador {
 			SwitchMenuTorneos(u.opcMenu5());
 			break;
 		case 4:
-			u.print("Gracias por utilizar nuestro programa");
+			Integer suma = rp.showApuestaList(rp.ShowApuestas());
+			u.print("Tu saldo final es de " + suma);
+			u.print("Gracias por utilizar nuestro programa y disfruta tu dinero");
 			break;
 		}
 	}
@@ -62,8 +64,8 @@ public class Controlador {
 			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		case 3:
-			v.showMainPlayer();
-			SwitchMenuPlayer(u.opcMenu5());
+			v.showModifyPlayer();
+			SwitchMenuModifyPlayer(u.opcMenu5());
 			break;
 		case 4:
 			rj.showPlayersList(rj.ShowPlayers());
@@ -73,6 +75,43 @@ public class Controlador {
 		case 5:
 			v.showMainMenu();
 			SwitchMain(u.opcMenu3());
+			break;
+		}
+	}
+	
+	private void SwitchMenuModifyPlayer(int op) {
+		switch (op) {
+		case 1:
+			Integer ID = u.leeEntero("Introduce el ID del jugador a modificar");
+			String name = u.leeString("Introduce el nombre nuevo");
+			rj.modifyName(ID, name);
+			v.showModifyPlayer();
+			SwitchMenuModifyPlayer(u.opcMenu5());
+			break;
+		case 2:
+			Integer ID2 = u.leeEntero("Introduce el ID del jugador a modificar");
+			Integer dorsal = u.leeEntero("Introduce el nuevo dorsal");
+			rj.modifyDorsal(ID2, dorsal);
+			v.showModifyPlayer();
+			SwitchMenuModifyPlayer(u.opcMenu5());
+			break;
+		case 3:
+			Integer ID3 = u.leeEntero("Introduce el ID del jugador a modificar");
+			Double altura = u.leeDouble("Introduce la nueva altura del jugador");
+			rj.modifyAltura(ID3, altura);
+			v.showModifyPlayer();
+			SwitchMenuModifyPlayer(u.opcMenu5());
+			break;
+		case 4:
+			Integer ID4 = u.leeEntero("Introduce el ID del jugador a modificar");
+			String pais = u.leeString("Introduce el nuevo pais del jugador");
+			rj.modifyPais(ID4, pais);
+			v.showModifyPlayer();
+			SwitchMenuModifyPlayer(u.opcMenu5());
+			break;
+		case 5:
+			v.showMainPlayer();
+			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		}
 	}
@@ -97,8 +136,8 @@ public class Controlador {
 			SwitchMenuTeam(u.opcMenu5());
 			break;
 		case 3:
-			v.showMainTeam();
-			SwitchMenuTeam(u.opcMenu5());
+			v.showModifyTeam();
+			SwitchMenuModifyTeam(u.opcMenu3());
 			break;
 		case 4:
 			re.showTeamsList(re.ShowTeams());
@@ -108,6 +147,29 @@ public class Controlador {
 		case 5:
 			v.showMainMenu();
 			SwitchMain(u.opcMenu3());
+			break;
+		}
+	}
+	
+	private void SwitchMenuModifyTeam(int op) {
+		switch (op) {
+		case 1:
+			String nombre = u.leeString("Introduce el nombre del equipo que quieres modificar");
+			String color = u.leeString("Introduce el nuevo color del equipo");
+			re.modifyColor(nombre, color);
+			v.showModifyTeam();
+			SwitchMenuModifyTeam(u.opcMenu3());
+			break;
+		case 2:
+			String nombre2 = u.leeString("Introduce el nombre del equipo que quieres modificar");
+			Integer nj = u.leeEntero("Introduce el nuevo numero de jugadores del equipo");
+			re.modifyNPlayers(nombre2, nj);
+			v.showModifyTeam();
+			SwitchMenuModifyTeam(u.opcMenu3());
+			break;
+		case 3:
+			v.showMainTeam();
+			SwitchMenuTeam(u.opcMenu5());
 			break;
 		}
 	}
@@ -157,6 +219,9 @@ public class Controlador {
 			p.PartidaAleatoria(t);
 			break;
 		case 2:
+			Integer id2 = u.leeEntero("Introduce el ID del torneo que quieres ver los emparejamiento");
+			Torneo torneo = rt.getTorneo(id2);
+			p.verEmparejamientos(torneo);
 			v.showStartTorneo();
 			SwitchStartTorneo(u.opcMenu4());
 			break;
@@ -191,7 +256,8 @@ public class Controlador {
 			SwitchMenuApuestas(u.opcMenu4());
 			break;
 		case 3:
-			rp.showApuestaList(rp.ShowApuestas());
+			Integer suma = rp.showApuestaList(rp.ShowApuestas());
+			u.print("La suma del saldo total es " + suma);
 			v.showMenuApuestas();
 			SwitchMenuApuestas(u.opcMenu4());
 			break;

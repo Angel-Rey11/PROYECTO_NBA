@@ -35,6 +35,28 @@ public class RepoEquipo {
 	}
 	
 	/**
+	 * Metodo para modificar el color de un equipo localizado por su nombre
+	 * @param name del equipo a buscar
+	 * @param color color al que se quiere cambiar
+	 */
+	public void modifyColor(String name, String color) {
+		if(this.misEquipos.containsKey(name)) {
+			misEquipos.get(name).setColor(color);
+		}
+	}
+	
+	/**
+	 * Metodo para modificar el NJugadores de un equipo localizado por su nombre
+	 * @param name del equipo a buscar
+	 * @param nj numero de jugadores al que se quiere cambiar
+	 */
+	public void modifyNPlayers(String name, Integer nj) {
+		if(this.misEquipos.containsKey(name)) {
+			misEquipos.get(name).setnJugadores(nj);
+		}
+	}
+	
+	/**
 	 * Metodo para añadir un equipo a la coleccion
 	 * @param e equipo que se añade
 	 * @return true si se ha añadido y false si no se ha podido añadir
