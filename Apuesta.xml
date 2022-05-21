@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RepoApuesta>
+    <misApuestas>
+        <entry>
+            <key>1</key>
+            <value Cantidad="80">
+                <nApuesta>1</nApuesta>
+                <equipo Nombre="a">
+                    <color>a</color>
+                    <nJugadores>0</nJugadores>
+                </equipo>
+                <saldo>0</saldo>
+            </value>
+        </entry>
+    </misApuestas>
+</RepoApuesta>

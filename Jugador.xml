@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RepoJugador>
+    <jugadores>
+        <entry>
+            <key>1</key>
+            <value ID="1" Nombre="Angel">
+                <atributo>
+                    <agilidad>78</agilidad>
+                    <defensa>78</defensa>
+                    <dribling>78</dribling>
+                    <fuerza>78</fuerza>
+                    <pase>78</pase>
+                    <posicionamiento>78</posicionamiento>
+                    <resistencia>78</resistencia>
+                    <salto>78</salto>
+                    <tiro>78</tiro>
+                    <velocidad>78</velocidad>
+                    <vision>78</vision>
+                </atributo>
+                <dorsal>8</dorsal>
+                <pais>España</pais>
+                <altura>190.0</altura>
+            </value>
+        </entry>
+    </jugadores>
+</RepoJugador>
