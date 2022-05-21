@@ -1,6 +1,8 @@
 package Modelo;
 
-public class Atributo {
+import Interfaces.IAtribute;
+
+public class Atributo implements IAtribute{
 	private Integer tiro;
 	private Integer defensa;
 	private Integer posicionamiento;

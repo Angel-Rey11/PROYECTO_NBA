@@ -79,6 +79,10 @@ public class Controlador {
 		}
 	}
 	
+	/**
+	 * Controlador del menu para modificar un jugador 
+	 * @param op opcion que queremos ejecutar
+	 */
 	private void SwitchMenuModifyPlayer(int op) {
 		switch (op) {
 		case 1:
@@ -151,6 +155,10 @@ public class Controlador {
 		}
 	}
 	
+	/**
+	 * Controlador del menu para modificar un equipo
+	 * @param op opcion que queremos ejecutar
+	 */
 	private void SwitchMenuModifyTeam(int op) {
 		switch (op) {
 		case 1:

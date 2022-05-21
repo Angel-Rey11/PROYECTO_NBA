@@ -7,6 +7,11 @@ public class Partida {
 	private ArrayList<Equipo> ladoizquierdo = new ArrayList<Equipo>();
 	private ArrayList<Equipo> ladoderecho = new ArrayList<Equipo>();	
 	
+	/**
+	 * Metodo para simular el torneo aleatoriamente
+	 * Al final nos muestra el ganador del torneo
+	 * @param t torneo que queremos simular
+	 */
 	public void PartidaAleatoria(Torneo t) {
 		generaEmparejamientos(t);
 		ArrayList<Equipo> ladoiz = new ArrayList<Equipo>();
@@ -72,6 +77,10 @@ public class Partida {
 		System.out.println(ladoderecho);
 	}
 	
+	/**
+	 * Metodo para ver los emparejamientos del torneo
+	 * @param t torneo del cual queremos ver los emparejamientos
+	 */
 	public void verEmparejamientos(Torneo t) {
 		generaEmparejamientos(t);
 		for (int i = 1; i < ladoizquierdo.size(); i++) {

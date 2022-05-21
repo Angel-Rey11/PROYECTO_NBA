@@ -10,9 +10,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import Interfaces.IRepoEquipo;
+
 @XmlRootElement(name="RepoEquipo")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RepoEquipo {
+public class RepoEquipo implements IRepoEquipo{
 	
 	//patron singleton
 	private static RepoEquipo _instance;

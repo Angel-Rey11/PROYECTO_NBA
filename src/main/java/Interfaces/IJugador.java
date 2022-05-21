@@ -2,21 +2,26 @@ package Interfaces;
 
 import java.util.ArrayList;
 
+import Modelo.Atributo;
+
+/**
+ * Interfaz que implementa Jugador
+ * @author Angel
+ *
+ */
 public interface IJugador {
-	String getName();
+	Integer getId();
+	String getNombre();
+	ArrayList<Atributo> getAtributo();
+	Integer getDorsal();
     String getPais();
-    Integer getDorsal();
-    Integer getAge();
     Double getAltura();
-    ArrayList<IAtribute> getAtribute();
-    String getTeam();
-    void setTeam(String Team);
-    void setAtribute(String Atribute);
-    void setAltura(Double Altura);
-    void setName(String Name);
-    void setPais(String Pais);
-    void setAge(Integer Age);
+    void setId(Integer id);
+    void setNombre(String nombre);
+    void setAtributo(ArrayList<Atributo> atributo);
     void setDorsal(Integer Dorsal);
+    void setPais(String Pais); 
+    void setAltura(Double Altura);
     boolean equals(Object o);
     int hashCode();
     String toString();

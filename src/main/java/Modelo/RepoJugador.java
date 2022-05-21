@@ -12,11 +12,12 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import Interfaces.IRepoJugador;
 import Utils.Utils;
 
 @XmlRootElement(name="RepoJugador")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RepoJugador {
+public class RepoJugador implements IRepoJugador{
 	
 	//patron singleton
 	private static RepoJugador _instance;
