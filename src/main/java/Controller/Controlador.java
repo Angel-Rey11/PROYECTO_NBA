@@ -25,6 +25,10 @@ public class Controlador {
 	 * @param op que introduces para navegar por el menu
 	 */
 	private void SwitchMain(int op) {
+		rj.loadFile("Jugador.xml");
+		re.loadFile("Equipo.xml");
+		rt.loadFile("Torneo.xml");
+		rp.loadFile("Apuesta.xml");
 		switch (op) {
 		case 1:
 			v.showMainPlayer();
@@ -54,12 +58,14 @@ public class Controlador {
 		switch (op) {
 		case 1:
 			rj.AddJugador(u.ReadJugador());
+			rj.saveFile("Jugador.xml");
 			v.showMainPlayer();
 			SwitchMenuPlayer(u.opcMenu5());
 			break;
 		case 2:
 			Integer id = u.leeEntero("Introduce el ID del jugador");
 			rj.removeJugador(id);
+			rj.saveFile("Jugador.xml");
 			v.showMainPlayer();
 			SwitchMenuPlayer(u.opcMenu5());
 			break;
@@ -74,7 +80,7 @@ public class Controlador {
 			break;
 		case 5:
 			v.showMainMenu();
-			SwitchMain(u.opcMenu3());
+			SwitchMain(u.opcMenu4());
 			break;
 		}
 	}
@@ -89,6 +95,7 @@ public class Controlador {
 			Integer ID = u.leeEntero("Introduce el ID del jugador a modificar");
 			String name = u.leeString("Introduce el nombre nuevo");
 			rj.modifyName(ID, name);
+			rj.saveFile("Jugador.xml");
 			v.showModifyPlayer();
 			SwitchMenuModifyPlayer(u.opcMenu5());
 			break;
@@ -96,6 +103,7 @@ public class Controlador {
 			Integer ID2 = u.leeEntero("Introduce el ID del jugador a modificar");
 			Integer dorsal = u.leeEntero("Introduce el nuevo dorsal");
 			rj.modifyDorsal(ID2, dorsal);
+			rj.saveFile("Jugador.xml");
 			v.showModifyPlayer();
 			SwitchMenuModifyPlayer(u.opcMenu5());
 			break;
@@ -103,6 +111,7 @@ public class Controlador {
 			Integer ID3 = u.leeEntero("Introduce el ID del jugador a modificar");
 			Double altura = u.leeDouble("Introduce la nueva altura del jugador");
 			rj.modifyAltura(ID3, altura);
+			rj.saveFile("Jugador.xml");
 			v.showModifyPlayer();
 			SwitchMenuModifyPlayer(u.opcMenu5());
 			break;
@@ -110,6 +119,7 @@ public class Controlador {
 			Integer ID4 = u.leeEntero("Introduce el ID del jugador a modificar");
 			String pais = u.leeString("Introduce el nuevo pais del jugador");
 			rj.modifyPais(ID4, pais);
+			rj.saveFile("Jugador.xml");
 			v.showModifyPlayer();
 			SwitchMenuModifyPlayer(u.opcMenu5());
 			break;
@@ -130,12 +140,14 @@ public class Controlador {
 			Equipo e = u.ReadEquipo();
 			u.print("Introduce los jugadores que quieras en el equipo");
 			re.AddEquipo(u.AddPlayers(e));
+			re.saveFile("Equipo.xml");
 			v.showMainTeam();
 			SwitchMenuTeam(u.opcMenu5());
 			break;
 		case 2:
 			String nombre = u.leeString("Introduce el nombre del equipo");
 			re.removeEquipo(nombre);
+			re.saveFile("Equipo.xml");
 			v.showMainTeam();
 			SwitchMenuTeam(u.opcMenu5());
 			break;
@@ -150,7 +162,7 @@ public class Controlador {
 			break;
 		case 5:
 			v.showMainMenu();
-			SwitchMain(u.opcMenu3());
+			SwitchMain(u.opcMenu4());
 			break;
 		}
 	}
@@ -165,6 +177,7 @@ public class Controlador {
 			String nombre = u.leeString("Introduce el nombre del equipo que quieres modificar");
 			String color = u.leeString("Introduce el nuevo color del equipo");
 			re.modifyColor(nombre, color);
+			re.saveFile("Equipo.xml");
 			v.showModifyTeam();
 			SwitchMenuModifyTeam(u.opcMenu3());
 			break;
@@ -172,6 +185,7 @@ public class Controlador {
 			String nombre2 = u.leeString("Introduce el nombre del equipo que quieres modificar");
 			Integer nj = u.leeEntero("Introduce el nuevo numero de jugadores del equipo");
 			re.modifyNPlayers(nombre2, nj);
+			re.saveFile("Equipo.xml");
 			v.showModifyTeam();
 			SwitchMenuModifyTeam(u.opcMenu3());
 			break;
@@ -190,12 +204,14 @@ public class Controlador {
 		switch (op) {
 		case 1:
 			rt.AddTorneo(u.ReadTorneo());
+			rt.saveFile("Torneo.xml");
 			v.showMainTorneos();
 			SwitchMenuTorneos(u.opcMenu5());
 			break;
 		case 2:
 			Integer id = u.leeEntero("Introduce el id del torneo");
 			rt.removeTorneo(id);
+			rt.saveFile("Torneo.xml");
 			v.showMainTorneos();
 			SwitchMenuTorneos(u.opcMenu5());
 			break;
@@ -210,7 +226,7 @@ public class Controlador {
 			break;
 		case 5:
 			v.showMainMenu();
-			SwitchMain(u.opcMenu3());
+			SwitchMain(u.opcMenu4());
 			break;
 		}
 	}
@@ -225,6 +241,8 @@ public class Controlador {
 			Integer id = u.leeEntero("Introduce el ID del torneo que quieres comenzar");
 			Torneo t = rt.getTorneo(id);
 			p.PartidaAleatoria(t);
+			v.showStartTorneo();
+			SwitchStartTorneo(u.opcMenu4());
 			break;
 		case 2:
 			Integer id2 = u.leeEntero("Introduce el ID del torneo que quieres ver los emparejamiento");
@@ -254,12 +272,14 @@ public class Controlador {
 			Integer id = u.leeEntero("Introduce el ID del torneo al que quieres apostar");
 			Torneo t = rt.getTorneo(id);
 			rp.AddEquipo(u.makeApuesta(t));
+			rp.saveFile("Apuesta.xml");
 			v.showMenuApuestas();
 			SwitchMenuApuestas(u.opcMenu4());
 			break;
 		case 2:
 			Integer id2 = u.leeEntero("Introduce el Numero de la apuesta que quieres eliminar");
 			rp.removeEquipo(id2);
+			rp.saveFile("Apuesta.xml");
 			v.showMenuApuestas();
 			SwitchMenuApuestas(u.opcMenu4());
 			break;

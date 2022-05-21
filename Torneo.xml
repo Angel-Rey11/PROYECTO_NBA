@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RepoTorneo>
+    <misTorneos>
+        <entry>
+            <key>1</key>
+            <value ID="1">
+                <nombre>a</nombre>
+                <listaEquipos Nombre="a">
+                    <color>a</color>
+                    <nJugadores>0</nJugadores>
+                </listaEquipos>
+                <listaEquipos Nombre="c">
+                    <color>c</color>
+                    <nJugadores>0</nJugadores>
+                </listaEquipos>
+                <listaEquipos Nombre="nb">
+                    <color>b</color>
+                    <nJugadores>0</nJugadores>
+                </listaEquipos>
+                <listaEquipos Nombre="d">
+                    <color>d</color>
+                    <nJugadores>0</nJugadores>
+                </listaEquipos>
+            </value>
+        </entry>
+    </misTorneos>
+</RepoTorneo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RepoEquipo>
+    <misEquipos>
+        <entry>
+            <key>a</key>
+            <value Nombre="a">
+                <color>a</color>
+                <nJugadores>0</nJugadores>
+            </value>
+        </entry>
+        <entry>
+            <key>c</key>
+            <value Nombre="c">
+                <color>c</color>
+                <nJugadores>0</nJugadores>
+            </value>
+        </entry>
+        <entry>
+            <key>nb</key>
+            <value Nombre="nb">
+                <color>b</color>
+                <nJugadores>0</nJugadores>
+            </value>
+        </entry>
+        <entry>
+            <key>d</key>
+            <value Nombre="d">
+                <color>d</color>
+                <nJugadores>0</nJugadores>
+            </value>
+        </entry>
+    </misEquipos>
+</RepoEquipo>
