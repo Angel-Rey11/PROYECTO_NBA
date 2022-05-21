@@ -7,9 +7,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import Interfaces.IApuesta;
+
 @XmlRootElement(name="Apuesta")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Apuesta implements Serializable {
+public class Apuesta implements Serializable, IApuesta {
 	
 	private static final long serialVersionUID = 1L;
 	

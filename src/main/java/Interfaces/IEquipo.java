@@ -1,13 +1,24 @@
 package Interfaces;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
+import Modelo.Jugador;
+
+/**
+ * Interfaz que implementa Equipo
+ * @author Angel
+ *
+ */
 public interface IEquipo {
-	String getColor();
 	String getNombre();
-	Integer getNP();
-	HashSet <IJugador> getPlayers();
+	String getColor();
+	Integer getnJugadores();
+	ArrayList<Jugador> getListaJugadores();
 	void setColor(String color);
 	void setNombre(String nombre);
-	void setNP(Integer NP);
+	void setnJugadores(Integer nJugadores);
+	void setListaJugadores(ArrayList<Jugador> listaJugadores);
+	boolean equals(Object o);
+    int hashCode();
+    String toString();
 }

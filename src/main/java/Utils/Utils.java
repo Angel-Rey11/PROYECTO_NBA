@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
-
-import Interfaces.IUtils;
 import Modelo.Apuesta;
 import Modelo.Atributo;
 import Modelo.Equipo;
@@ -15,9 +13,8 @@ import Modelo.RepoEquipo;
 import Modelo.RepoJugador;
 import Modelo.RepoTorneo;
 import Modelo.Torneo;
-import Vistas.Vistas;
 
-public class Utils implements IUtils {
+public class Utils {
 	
 	//patron singleton
 		private static Utils _instance;
@@ -124,6 +121,11 @@ public class Utils implements IUtils {
 		return misJ;
 	}
 	
+	/**
+	 * Metodo donde creamos el torneo, le pasamos todos sus atributos, llamamos a la funcion de elegir
+	 * equipos, lo pasamos en un arrayList y creamos un nuevo torneo
+	 * @return el torneo creado
+	 */
 	public Torneo ReadTorneo() {
 		Integer id= leeEntero("Introduce el identificador del torneo");
 		String nombre = leeString("Introduce el nombre del torneo");
@@ -132,6 +134,11 @@ public class Utils implements IUtils {
 		return t;
 	}
 	
+	/**
+	 * Metodo para elegir los equipos, cuando creamos un torneo elegimos los equipos que queremos que formen parte
+	 * de ese torneo
+	 * @return arrayList con los equipos elegidos
+	 */
 	public ArrayList<Equipo> ElegirEquipos() {
 		ArrayList<Equipo> misEquipos = new ArrayList<Equipo>();
 		Integer contador = 0;
@@ -145,6 +152,13 @@ public class Utils implements IUtils {
 		return misEquipos;
 	}
 	
+	/**
+	 * Metodo para hacer una apuesta, donde le pasamos todos sus atributos, mostramos los equipos de ese torneo
+	 * y apostamos por un equipo, generamos un numero aleatorio para saber si hemos ganado la apuesta o no
+	 * Si se gana la apuesta, la cantidad apostada se multiplica por 2, se si pierde, perdemos todo.
+	 * @param t torneo donde queremos apostar
+	 * @return la apuesta creada
+	 */
 	public Apuesta makeApuesta(Torneo t) {
 		Integer n = leeEntero("Introduce el numero de la apuesta");
 		Integer cantidad = leeEntero("Introduce la cantidad que vas a apostar");
@@ -162,6 +176,10 @@ public class Utils implements IUtils {
 		}
 	}
 	
+	/**
+	 * Metodo para comprobar la apuesta, con dos numeros aleatorios vemos si ganamos la apuesta
+	 * @return true si se ha ganado, false si ha perdido
+	 */
 	public boolean comprobarApuesta() {
 		boolean s = false;
 		Random r = new Random();
@@ -177,6 +195,10 @@ public class Utils implements IUtils {
 	return s;
 	}
 	
+	/**
+	 * Metodo para mostrar los equipos de un torneo en concreto, se recorre y se muestran
+	 * @param t torneo del que queremos mostrar los equipos
+	 */
 	public void MostrarEquipos (Torneo t) {
 		ArrayList<Equipo> dev = t.getListaEquipos();
 		for (Equipo e : dev) {

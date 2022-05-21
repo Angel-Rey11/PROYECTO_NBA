@@ -11,12 +11,14 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import Interfaces.IRepoApuesta;
+
 @XmlRootElement(name="RepoApuesta")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RepoApuesta {
+public class RepoApuesta implements IRepoApuesta{
 	
 	//patron singleton
-		private static RepoApuesta _instance;
+	private static RepoApuesta _instance;
 		
 	private HashMap<Integer, Apuesta> misApuestas;
 	
@@ -73,6 +75,7 @@ public class RepoApuesta {
 	
 	/**
 	 * Metodo para mostrar la lista de apuestas que se encuentra en el hashmap
+	 * También suma el saldo de todas las apuestas para luego poder sacarlo
 	 */
 	public Integer showApuestaList(HashMap <Integer, Apuesta> e){
 		Integer suma = 0;

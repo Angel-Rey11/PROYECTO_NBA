@@ -1,26 +1,31 @@
 package Interfaces;
 
+/**
+ * Interfaz que implementa Atributo
+ * @author Angel
+ *
+ */
 public interface IAtribute {
-	Integer getShot();
-	Integer getDefense();
-	Integer getPosition();
-	Integer getSpeed();
-	Integer getStrength();
-	Integer getJump();
+	Integer getTiro();
+	Integer getDefensa();
+	Integer getPosicionamiento();
+	Integer getVelocidad();
+	Integer getFuerza();
+	Integer getSalto();
 	Integer getDribling();
-	Integer getResistence();
+	Integer getResistencia();
 	Integer getVision();
-	Integer getPass();
-	Integer getAgility();
-	void setShot(Integer shot);
-	void setDefense(Integer Defense);
-	void setPosition(Integer Position);
-	void setSpeed(Integer Speed);
-	void setStrength(Integer Strength);
-	void setJump(Integer Jump);
-	void setDrinbling(Integer Dribling);
-	void setResistence(Integer Resistence);
-	void setVision(Integer Vision);
-	void setPass(Integer Pass);
-	void setAgility(Integer Agility);
+	Integer getPase();
+	Integer getAgilidad();
+	void setTiro(Integer tiro);
+	void setDefensa(Integer defensa);
+	void setPosicionamiento(Integer posicionamiento);
+	void setVelocidad(Integer velocidad);
+	void setFuerza(Integer fuerza);
+	void setSalto(Integer salto);
+	void setDribling(Integer dribling);
+	void setResistencia(Integer resistencia);
+	void setVision(Integer vision);
+	void setPase(Integer pase);
+	void setAgilidad(Integer agilidad);
 }

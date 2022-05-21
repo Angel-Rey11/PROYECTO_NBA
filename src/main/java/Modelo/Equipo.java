@@ -9,9 +9,11 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import Interfaces.IEquipo;
+
 @XmlRootElement(name="Equipo")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Equipo implements Serializable{
+public class Equipo implements Serializable,IEquipo{
 	
 	private static final long serialVersionUID = 1L;
 	

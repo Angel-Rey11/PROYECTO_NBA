@@ -11,9 +11,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import Interfaces.IRepoTorneo;
+
 @XmlRootElement(name="RepoTorneo")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RepoTorneo {
+public class RepoTorneo implements IRepoTorneo{
 	
 	//patron singleton
 	private static RepoTorneo _instance;
