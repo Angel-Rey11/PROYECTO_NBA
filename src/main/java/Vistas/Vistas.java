@@ -2,6 +2,11 @@ package Vistas;
 
 import Interfaces.IVista;
 
+/**
+ * Clase donde tenemos todas las vistas para la ejecución del programa
+ * @author Angel
+ *
+ */
 public class Vistas implements IVista{
 	/**
 	 * Vista para el menu principal del programa
