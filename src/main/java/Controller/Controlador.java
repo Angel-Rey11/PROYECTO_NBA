@@ -10,6 +10,11 @@ import Modelo.Torneo;
 import Utils.Utils;
 import Vistas.Vistas;
 
+/**
+ * Clase Controlador que controla todas las entradas del programa y maneja las vistas para manejar por ellas
+ * @author Angel
+ *
+ */
 public class Controlador {
 	
 	Vistas v = new Vistas();

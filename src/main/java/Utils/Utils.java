@@ -14,6 +14,11 @@ import Modelo.RepoJugador;
 import Modelo.RepoTorneo;
 import Modelo.Torneo;
 
+/**
+ * Clase Utils donde tenemos todos los metodos con la utilidad necesaria para la creacción, elección y mas cosas
+ * @author Angel
+ *
+ */
 public class Utils {
 	
 	//patron singleton

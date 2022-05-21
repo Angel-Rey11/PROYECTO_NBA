@@ -3,6 +3,11 @@ package Modelo;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Clase que controla la simulacion del torneo y genera los emparejamientos, también podemos ver esos emparejamientos
+ * @author Angel
+ *
+ */
 public class Partida {
 	private ArrayList<Equipo> ladoizquierdo = new ArrayList<Equipo>();
 	private ArrayList<Equipo> ladoderecho = new ArrayList<Equipo>();	
